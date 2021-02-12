@@ -28,9 +28,11 @@ function createDOM(object) {
 
   console.log('this should create a new dom');
   var $tr = document.createElement('tr');
+  $tr.className = object.day;
+  $tr.setAttribute('data-view', object.day);
 
   var timeTd = document.createElement('td');
-  timeTd.textContent = object.time + ' ' +  object.ampm;
+  timeTd.textContent = object.time + ' ' + object.ampm;
 
   var notesTd = document.createElement('td');
   notesTd.textContent = object.notes;
@@ -40,35 +42,43 @@ function createDOM(object) {
   return $tr;
 }
 
-function generateEntries(event){
+function generateEntries(event) {
   console.log('this fired');
-  for (var i =0; i < data.entries.length; i++){
-   var newRow = createDOM(data.entries[i]);
+  for (var i = 0; i < data.entries.length; i++) {
+    var newRow = createDOM(data.entries[i]);
     tBody.appendChild(newRow);
   }
 }
 
-function showDayEntries(event){
-  if(event.target.textContent === 'Monday'){
-
-  }else if(event.target.textContent === 'Tuesday'){
+function showDayEntries(event) {
+  removeEntries();
+  if (event.target.textContent === 'Monday') {
+    for (var i = 0; data.entries.length; i++) {
+      if (data.entries[i].day === 'monday') {
+        generateEntries(data.entries[i]);
+      }
+    }
+  } else if (event.target.textContent === 'Tuesday') {
     console.log('Tuesday');
-  }else if(event.target.textContent === 'Wednesday'){
+  } else if (event.target.textContent === 'Wednesday') {
     console.log('Wednesday');
-  }else if(event.target.textContent === 'Thursday'){
+  } else if (event.target.textContent === 'Thursday') {
     console.log('thur');
-  }else if(event.target.textContent === 'Friday'){
+  } else if (event.target.textContent === 'Friday') {
     console.log('fri');
-  }else if(event.target.textContent === 'Saturday'){
+  } else if (event.target.textContent === 'Saturday') {
     console.log('sat');
-  }else if(event.target.textContent === 'Sunday'){
+  } else if (event.target.textContent === 'Sunday') {
     console.log('sun');
 
   }
 }
 
-function removeEntries(object){
-
+function removeEntries() {
+  var trElements = tBody.querySelectorAll('tr');
+  for (var i = 0; i < trElements.length; i++) {
+    trElements[i].remove();
+  }
 }
 
 entryButton.addEventListener('click', unhideModal);
