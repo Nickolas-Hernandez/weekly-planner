@@ -8,12 +8,7 @@ function unhideModal(event) {
 }
 
 function handleEntrySubmit(event) {
-
   event.preventDefault()
-  console.log('hi');
-  console.log(event, event.target, event.submitter);
-
-  console.log('submit was completed');
   var entry = {};
   entry.day = entryForm.elements.dayOfTheWeek.value;
   entry.time = entryForm.elements.time.value;
@@ -21,12 +16,10 @@ function handleEntrySubmit(event) {
   entry.notes = entryForm.elements.textArea.value;
   entry.entryId = data.nextEntryId;
   data.entryId++;
-  console.log(entry);
   data.entries.unshift(entry);
-
   entryModal.className = 'add-entry-modal hidden';
+  entryForm.reset();
 }
 
 entryButton.addEventListener('click', unhideModal);
-
-submitButton.addEventListener('submit', handleEntrySubmit);
+entryForm.addEventListener('submit', handleEntrySubmit);

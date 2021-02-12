@@ -17,9 +17,46 @@
     </div>
   </header>
   <main>
+    <section class="day-buttons-section">
+      <div class="container">
+        <div class="row days-row">
+        <div class="button-wrapper">
+          <button class="day-button">Monday</button>
+        </div>
+
+        <div class="button-wrapper">
+          <button class="day-button">Tuesday</button>
+        </div>
+
+        <div class="button-wrapper">
+          <button class="day-button">Wednesday</button>
+        </div>
+
+        <div class="button-wrapper">
+          <button class="day-button">Thursday</button>
+        </div>
+        <div class="button-wrapper">
+          <button class="day-button">Friday</button>
+        </div>
+
+        <div class="button-wrapper">
+          <button class="day-button">Saturday</button>
+        </div>
+        <div class="button-wrapper">
+          <button class="day-button">Sunday</button>
+        </div>
+      </div>
+    </section>
     <div class="container row button-row">
       <button class="add-entry-button">Add Entry</button>
     </div>
+    <section class="schedule-section">
+      <div class="container">
+        <div class="todo-list" data-view="monday">
+
+        </div>
+      </div>
+    </section>
     <div class="add-entry-modal hidden">
       <form action="index.html" class="modal">
         <h2>Add Entry</h2>
@@ -55,8 +92,7 @@
             </select>
         </div>
         <div class="row">
-          <textarea class="textarea" placeholder="Description" name="textArea" rows="8">
-                </textarea>
+          <textarea class="textarea" placeholder="Description" name="textArea" rows="8"></textarea>
           <input type="submit" class="submit" name="submit">
         </div>
       </form>
