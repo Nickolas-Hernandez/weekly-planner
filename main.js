@@ -19,18 +19,32 @@ function handleEntrySubmit(event) {
   data.entryId++;
   data.entries.unshift(entry);
   entryModal.className = 'add-entry-modal hidden';
+  tBody.appendChild(createDOM(entry));
   entryForm.reset();
 }
 
-function createDOM(entry) {
+function createDOM(object) {
+
+  console.log('this should create a new dom');
   var $tr = document.createElement('tr');
-  tBody.appendChild($tr);
 
-  var timeTd = document.createElement('tr');
-  timeTd.textContent = data.entries.time;
+  var timeTd = document.createElement('td');
+  timeTd.textContent = object.time + ' ' +  object.ampm;
 
-  var notesTd = document.createElement('tr');
-  timeTd.textContent = data.entries.notes;
+  var notesTd = document.createElement('td');
+  notesTd.textContent = object.notes;
+
+  $tr.appendChild(timeTd);
+  $tr.appendChild(notesTd);
+  return $tr;
+}
+
+function generateEntries(event){
+  console.log('this fired');
+  for (var i =0; i < data.entries.length; i++){
+   var newRow = createDOM(data.entries[i]);
+    tBody.appendChild(newRow);
+  }
 }
 
 entryButton.addEventListener('click', unhideModal);
