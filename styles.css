@@ -29,3 +29,13 @@ header h1 {
   border: 1px solid black;
   border-radius: 4px;
 }
+
+.hidden {
+  display: none;
+}
+
+.add-entry-modal {
+  position: absolute;
+  margin-top: 0;
+  margin-right: 0;
+}
