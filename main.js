@@ -2,13 +2,14 @@ var entryButton = document.querySelector('.add-entry-button');
 var entryModal = document.querySelector('.add-entry-modal');
 var entryForm = document.querySelector('.modal');
 var submitButton = document.querySelector('.submit');
+var tBody = document.querySelector('tbody');
 
 function unhideModal(event) {
   entryModal.classList.remove('hidden');
 }
 
 function handleEntrySubmit(event) {
-  event.preventDefault()
+  event.preventDefault();
   var entry = {};
   entry.day = entryForm.elements.dayOfTheWeek.value;
   entry.time = entryForm.elements.time.value;
@@ -21,5 +22,17 @@ function handleEntrySubmit(event) {
   entryForm.reset();
 }
 
+function createDOM(entry) {
+  var $tr = document.createElement('tr');
+  tBody.appendChild($tr);
+
+  var timeTd = document.createElement('tr');
+  timeTd.textContent = data.entries.time;
+
+  var notesTd = document.createElement('tr');
+  timeTd.textContent = data.entries.notes;
+}
+
 entryButton.addEventListener('click', unhideModal);
 entryForm.addEventListener('submit', handleEntrySubmit);
+window.addEventListener('DOMContentLoaded', generateEntries);
