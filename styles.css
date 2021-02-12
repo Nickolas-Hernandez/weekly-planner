@@ -4,6 +4,16 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Raleway', sans-serif;
+}
+
 .container {
   width: 1000px;
 }
@@ -13,7 +23,8 @@
   flex-wrap: wrap;
 }
 
-header h1 {
+header h1,
+.modal > h2 {
   width: 100%;
   text-align: center;
 }
@@ -23,7 +34,8 @@ header h1 {
   align-items: center;
 }
 
-.add-entry-button {
+.add-entry-button,
+.submit {
   margin: 3rem 0;
   padding: 5px 10px;
   border: 1px solid black;
@@ -31,11 +43,45 @@ header h1 {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .add-entry-modal {
   position: absolute;
-  margin-top: 0;
-  margin-right: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  width: 600px;
+  height: 360px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 4px;
+}
+
+.textarea {
+  width: 100%;
+}
+
+.submit {
+  margin-left: auto;
+  margin-top: 1rem;
+}
+
+input,
+textarea,
+select {
+  margin: 1rem 0;
+  border-radius: 4px;
+}
+
+select {
+  margin-right: 0.5rem;
 }
