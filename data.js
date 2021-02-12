@@ -9,6 +9,6 @@ var data = {
     friday: [],
     saturday: [],
     sunday: []
-  };
+  },
   nextEntryId: 1
-}
+};
