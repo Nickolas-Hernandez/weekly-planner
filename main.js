@@ -20,8 +20,11 @@ function handleEntrySubmit(event) {
   entry.entryId = data.nextEntryId;
   data.entryId++;
   data.entries.unshift(entry);
-  entryModal.className = 'add-entry-modal hidden';
+  if (entry.day === data.view) {
+    tBody.appendChild(createDOM(entry));
+  }
 
+  entryModal.className = 'add-entry-modal hidden';
   entryForm.reset();
 }
 
@@ -37,8 +40,13 @@ function createDOM(object) {
   var notesTd = document.createElement('td');
   notesTd.textContent = object.notes;
 
+  var button = document.createElement('button');
+  button.className = 'update-button';
+  button.textContent = 'Update';
+
   $tr.appendChild(timeTd);
   $tr.appendChild(notesTd);
+  notesTd.appendChild(button);
   return $tr;
 }
 
@@ -52,17 +60,19 @@ function generateEntries(event) {
 function showDayEntries(event) {
   if (event.target.textContent === 'Monday') {
     removeEntries();
-    scheduleHeading.textContent = "Scheduled Events for Monday";
+    scheduleHeading.textContent = 'Scheduled Events for Monday';
+    data.view = 'monday';
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'monday') {
         var newDom = createDOM(data.entries[i]);
         tBody.appendChild(newDom);
+      }
     }
-  }
   } else if (event.target.textContent === 'Tuesday') {
     removeEntries();
-    scheduleHeading.textContent = "Scheduled Events for Tuesday";
-    for (var i = 0; i < data.entries.length; i++) {
+    scheduleHeading.textContent = 'Scheduled Events for Tuesday';
+    data.view = 'tuesday';
+    for (i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'tuesday') {
         var newDom = createDOM(data.entries[i]);
         tBody.appendChild(newDom);
@@ -71,8 +81,9 @@ function showDayEntries(event) {
 
   } else if (event.target.textContent === 'Wednesday') {
     removeEntries();
-    scheduleHeading.textContent = "Scheduled Events for Wednesday";
-    for (var i = 0; i < data.entries.length; i++) {
+    scheduleHeading.textContent = 'Scheduled Events for Wednesday';
+    data.view = 'wednesday';
+    for (i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'wednesday') {
         var newDom = createDOM(data.entries[i]);
         tBody.appendChild(newDom);
@@ -80,8 +91,9 @@ function showDayEntries(event) {
     }
   } else if (event.target.textContent === 'Thursday') {
     removeEntries();
-    scheduleHeading.textContent = "Scheduled Events for Thursday";
-    for (var i = 0; i < data.entries.length; i++) {
+    scheduleHeading.textContent = 'Scheduled Events for Thursday';
+    data.view = 'thursday';
+    for (i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'thursday') {
         var newDom = createDOM(data.entries[i]);
         tBody.appendChild(newDom);
@@ -90,8 +102,9 @@ function showDayEntries(event) {
 
   } else if (event.target.textContent === 'Friday') {
     removeEntries();
-    scheduleHeading.textContent = "Scheduled Events for Friday";
-    for (var i = 0; i < data.entries.length; i++) {
+    scheduleHeading.textContent = 'Scheduled Events for Friday';
+    data.view = 'friday';
+    for (i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'friday') {
         var newDom = createDOM(data.entries[i]);
         tBody.appendChild(newDom);
@@ -99,8 +112,9 @@ function showDayEntries(event) {
     }
   } else if (event.target.textContent === 'Saturday') {
     removeEntries();
-    scheduleHeading.textContent = "Scheduled Events for Saturday";
-    for (var i = 0; i < data.entries.length; i++) {
+    scheduleHeading.textContent = 'Scheduled Events for Saturday';
+    data.view = 'saturday';
+    for (i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'saturday') {
         var newDom = createDOM(data.entries[i]);
         tBody.appendChild(newDom);
@@ -108,8 +122,9 @@ function showDayEntries(event) {
     }
   } else if (event.target.textContent === 'Sunday') {
     removeEntries();
-    scheduleHeading.textContent = "Scheduled Events for Sunday";
-    for (var i = 0; i < data.entries.length; i++) {
+    scheduleHeading.textContent = 'Scheduled Events for Sunday';
+    data.view = 'sunday';
+    for (i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'sunday') {
         var newDom = createDOM(data.entries[i]);
         tBody.appendChild(newDom);

@@ -14,8 +14,8 @@ h3 {
   font-family: 'Raleway', sans-serif;
 }
 
-button{
-cursor: pointer;
+button {
+  cursor: pointer;
 }
 
 .container {
@@ -92,48 +92,56 @@ select {
   margin-right: 0.5rem;
 }
 
-.days-row{
+.days-row {
   min-height: 200px;
   justify-content: space-between;
   align-items: center;
 }
 
-.day-button{
+.day-button {
   width: 5rem;
   height: 5rem;
 }
 
-.todo-list{
+.todo-list {
   width: 100%;
   height: 400px;
 }
 
-.column-full{
+.column-full {
   width: 100%;
   text-align: center;
 }
 
-table{
+table {
   width: 100%;
   border: 2px solid black;
   border-radius: 4px;
 }
 
-tr{
+tr {
   height: 2rem;
 }
 
-tr:nth-child(even){
+tr:nth-child(even) {
   background-color: rgb(193, 193, 193);
 }
-thead{
+
+thead {
   background-color: rgb(121, 121, 121);
 }
 
-td{
+td {
   padding-left: 10px;
+  position: relative;
 }
 
-.schedule-title{
+.update-button {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+}
+
+.schedule-title {
   margin-bottom: 2rem;
 }
