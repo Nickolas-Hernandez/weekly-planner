@@ -18,7 +18,7 @@ function handleEntrySubmit(event) {
   entry.ampm = entryForm.elements.amPm.value;
   entry.notes = entryForm.elements.textArea.value;
   entry.entryId = data.nextEntryId;
-  data.entryId++;
+  data.nextEntryId++;
   data.entries.unshift(entry);
   if (entry.day === data.view) {
     tBody.appendChild(createDOM(entry));
@@ -33,6 +33,7 @@ function createDOM(object) {
   var $tr = document.createElement('tr');
   $tr.className = object.day;
   $tr.setAttribute('data-view', object.day);
+  $tr.setAttribute('data-entry-id', object.entryId);
 
   var timeTd = document.createElement('td');
   timeTd.textContent = object.time + ' ' + object.ampm;
@@ -141,6 +142,22 @@ function removeEntries() {
   }
 }
 
+function updateClick(event){
+  if(event.target.className === 'update-button' );
+  var closestTR = event.target.closest('tr');
+  var dataID = closestTR.getAttribute('data-entry-id');
+  console.log(dataID);
+  for (var i = 0; i < data.entries.length; i++){
+    if(dataID === data.entries[i].entryId.toString()){
+      data.editing = data.entries[i];
+    }
+  }
+  unhideModal();
+  entryForm.elements.day = data.editing.day;
+}
+
+
+tBody.addEventListener('click', updateClick);
 entryButton.addEventListener('click', unhideModal);
 entryForm.addEventListener('submit', handleEntrySubmit);
 buttonsSection.addEventListener('click', showDayEntries);
