@@ -4,6 +4,7 @@ var entryForm = document.querySelector('.modal');
 var submitButton = document.querySelector('.submit');
 var tBody = document.querySelector('tbody');
 var buttonsSection = document.querySelector('.day-buttons-section');
+var scheduleHeading = document.querySelector('.schedule-title');
 
 function unhideModal(event) {
   entryModal.classList.remove('hidden');
@@ -51,6 +52,7 @@ function generateEntries(event) {
 function showDayEntries(event) {
   if (event.target.textContent === 'Monday') {
     removeEntries();
+    scheduleHeading.textContent = "Scheduled Events for Monday";
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'monday') {
         var newDom = createDOM(data.entries[i]);
@@ -59,23 +61,60 @@ function showDayEntries(event) {
   }
   } else if (event.target.textContent === 'Tuesday') {
     removeEntries();
-    for (var j = 0; j < data.entries.length; j++) {
-      if (data.entries[j].day === 'tuesday') {
-        createDOM(data.entries[j]);
+    scheduleHeading.textContent = "Scheduled Events for Tuesday";
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'tuesday') {
+        var newDom = createDOM(data.entries[i]);
+        tBody.appendChild(newDom);
       }
     }
 
   } else if (event.target.textContent === 'Wednesday') {
-    console.log('something');
+    removeEntries();
+    scheduleHeading.textContent = "Scheduled Events for Wednesday";
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'wednesday') {
+        var newDom = createDOM(data.entries[i]);
+        tBody.appendChild(newDom);
+      }
+    }
   } else if (event.target.textContent === 'Thursday') {
-    console.log('something');
+    removeEntries();
+    scheduleHeading.textContent = "Scheduled Events for Thursday";
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'thursday') {
+        var newDom = createDOM(data.entries[i]);
+        tBody.appendChild(newDom);
+      }
+    }
 
   } else if (event.target.textContent === 'Friday') {
-    console.log('fri');
+    removeEntries();
+    scheduleHeading.textContent = "Scheduled Events for Friday";
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'friday') {
+        var newDom = createDOM(data.entries[i]);
+        tBody.appendChild(newDom);
+      }
+    }
   } else if (event.target.textContent === 'Saturday') {
-    console.log('sat');
+    removeEntries();
+    scheduleHeading.textContent = "Scheduled Events for Saturday";
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'saturday') {
+        var newDom = createDOM(data.entries[i]);
+        tBody.appendChild(newDom);
+      }
+    }
   } else if (event.target.textContent === 'Sunday') {
-    console.log('sun');
+    removeEntries();
+    scheduleHeading.textContent = "Scheduled Events for Sunday";
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'sunday') {
+        var newDom = createDOM(data.entries[i]);
+        tBody.appendChild(newDom);
+      }
+    }
 
   }
 }
