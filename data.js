@@ -11,6 +11,7 @@ if (previousData) {
   data = JSON.parse(previousData);
 }
 
+
 function beforeUnload(event) {
   var dataJSON = JSON.stringify(data);
   localStorage.setItem('data', dataJSON);

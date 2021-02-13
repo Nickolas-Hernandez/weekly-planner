@@ -20,13 +20,12 @@ function handleEntrySubmit(event) {
   data.entryId++;
   data.entries.unshift(entry);
   entryModal.className = 'add-entry-modal hidden';
-  tBody.appendChild(createDOM(entry));
+
   entryForm.reset();
 }
 
 function createDOM(object) {
 
-  console.log('this should create a new dom');
   var $tr = document.createElement('tr');
   $tr.className = object.day;
   $tr.setAttribute('data-view', object.day);
@@ -43,7 +42,6 @@ function createDOM(object) {
 }
 
 function generateEntries(event) {
-  console.log('this fired');
   for (var i = 0; i < data.entries.length; i++) {
     var newRow = createDOM(data.entries[i]);
     tBody.appendChild(newRow);
@@ -51,19 +49,34 @@ function generateEntries(event) {
 }
 
 function showDayEntries(event) {
-  removeEntries();
   if (event.target.textContent === 'Monday') {
-    for (var i = 0; data.entries.length; i++) {
+    removeEntries();
+    for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'monday') {
+        generateEntries(data.entries[i]);
+    }
+  }
+  } else if (event.target.textContent === 'Tuesday') {
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'tuesday') {
         generateEntries(data.entries[i]);
       }
     }
-  } else if (event.target.textContent === 'Tuesday') {
-    console.log('Tuesday');
+
   } else if (event.target.textContent === 'Wednesday') {
-    console.log('Wednesday');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'wednesday') {
+        generateEntries(data.entries[i]);
+      }
+    }
+
   } else if (event.target.textContent === 'Thursday') {
-    console.log('thur');
+    for (var i = 0; i < data.entries.length; i++) {
+      if (data.entries[i].day === 'thursday') {
+        generateEntries(data.entries[i]);
+      }
+    }
+
   } else if (event.target.textContent === 'Friday') {
     console.log('fri');
   } else if (event.target.textContent === 'Saturday') {
