@@ -53,29 +53,22 @@ function showDayEntries(event) {
     removeEntries();
     for (var i = 0; i < data.entries.length; i++) {
       if (data.entries[i].day === 'monday') {
-        generateEntries(data.entries[i]);
+        var newDom = createDOM(data.entries[i]);
+        tBody.appendChild(newDom);
     }
   }
   } else if (event.target.textContent === 'Tuesday') {
-    for (var i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].day === 'tuesday') {
-        generateEntries(data.entries[i]);
+    removeEntries();
+    for (var j = 0; j < data.entries.length; j++) {
+      if (data.entries[j].day === 'tuesday') {
+        createDOM(data.entries[j]);
       }
     }
 
   } else if (event.target.textContent === 'Wednesday') {
-    for (var i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].day === 'wednesday') {
-        generateEntries(data.entries[i]);
-      }
-    }
-
+    console.log('something');
   } else if (event.target.textContent === 'Thursday') {
-    for (var i = 0; i < data.entries.length; i++) {
-      if (data.entries[i].day === 'thursday') {
-        generateEntries(data.entries[i]);
-      }
-    }
+    console.log('something');
 
   } else if (event.target.textContent === 'Friday') {
     console.log('fri');
